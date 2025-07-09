@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Looped Thai UI', sans-serif;
+    background-color: #E9E9E9;
+    overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
+}
+
+.header img {
+    position: relative;
+    top: -3.5rem; /* คงค่าเดิมเพื่อให้โลโก้ลอย */
+}
+
+.header {
+    margin-bottom: -2.5rem; /* ลดระยะห่างด้านล่างของ header ให้เนื้อหาด้านล่างขยับขึ้น */
+    /* ปรับตามความเหมาะสมกับค่า top ของ img */
+}
+
+.login-box {
+    margin-top: 0.8rem; 
+    /* ปรับค่า margin-top ของ .login-box เพื่อให้มันขึ้นไปชนกับข้อความ "เข้าสู่ระบบ" */
+}
+
+
+@media (max-width: 768px) {
+    .header img {
+        top: -2rem; /* ปรับตำแหน่งโลโก้สำหรับหน้าจอเล็ก */
+    }
+    .header h1.fs-2 { /* ใช้ class ใน HTML */
+        font-size: 1.75rem !important; /* ปรับขนาด font สำหรับ h1 บนจอเล็ก */
+    }
+    .header p.fs-4 { /* ใช้ class ที่ใส่ใน HTML */
+        font-size: 1.25rem !important; /* ปรับขนาด font สำหรับ p บนจอเล็ก */
+    }
+    .login-box {
+        padding: 1.5rem !important; /* ลด padding ของ login-box */
+    }
+    .btn.w-75 {
+        width: 90% !important; /* ทำให้ปุ่มกว้างขึ้นบนจอเล็ก */
+    }
+}
+
+@media (max-width: 576px) {
+    .header img {
+        top: -1.5rem; /* ปรับตำแหน่งโลโก้สำหรับหน้าจอที่เล็กมากๆ */
+        max-width: 180px !important; /* ลดขนาดโลโก้เพิ่มเติม */
+    }
+    .header h1.fs-2 {
+        font-size: 1.5rem !important;
+    }
+    .header p.fs-4 {
+        font-size: 1rem !important;
+    }
+    .login-box {
+        padding: 1rem !important;
+    }
+    .remember-forgot {
+        flex-direction: column; /* จัดเรียงเป็นคอลัมน์ในจอเล็ก */
+        align-items: flex-start !important; /* จัดชิดซ้าย */
+    }
+    .remember-forgot a {
+        margin-top: 0.5rem; /* เพิ่มช่องว่างระหว่าง checkbox กับ link */
+    }
+    .btn.w-75 {
+        width: 100% !important; /* ทำให้ปุ่มกว้างเต็มจอในจอที่เล็กมากๆ */
+    }
+}
+
+.input-group-text .fas {
+    color: #888;
+    font-size: 18px;
+}
+
+.remember-forgot a:hover {
+    color: #0a572d;
+    text-decoration: none;
+}
+
+.header h1,
+.header p {
+    color: #000000; /* สีดำสนิท */
+}
+
+.btn.btn-success {
+    background-color: #0E733B; /* สีพื้นหลัง */
+    border-color: #0E733B;     /* สีขอบ */
+    color: white;              /* สีข้อความ */
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-success:hover {
+    background-color: #08602e; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+    /* border-color: #0a572d;     สีขอบเมื่อเมาส์ชี้ */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-check-input {
+  border: 1px solid #888;
+}
+
+.form-check-input:checked {
+  background-color: #0E733B;
+  border-color: #074623;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(14, 115, 59, 0.25); /* เงาเมื่อ focus */
+    border-color: #0E733B; /* อาจเปลี่ยนสีขอบเมื่อ focus */
+}
+
+.form-control {
+  border-radius: 1rem;
+}
+
+.form-control:focus {
+    border-color: #939594; /* เปลี่ยนสีขอบเป็นสีเขียวที่คุณใช้กับปุ่ม */
+    box-shadow: 0 0 0 0.25rem rgba(14, 115, 59, 0.25); /* เปลี่ยนสีเงาให้เข้ากับสีเขียวของคุณ */
+    /* ถ้าต้องการลบเงาสีฟ้าออกทั้งหมด ให้ใช้โค้ดด้านล่างนี้แทน: */
+    box-shadow: none;
+}
+
+.wave-container svg {
+    /* width: 109%; ถ้ายังจำเป็นให้ใส่ แต่ w-100 ใน HTML */
+    /* height: 100%; ถูกจัดการด้วย h-100 ใน HTML แล้ว */
+    display: block;
+}
