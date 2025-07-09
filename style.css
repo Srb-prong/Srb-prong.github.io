@@ -1,128 +1,337 @@
+/* --- สไตล์ทั่วไปสำหรับ Body --- */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Looped Thai UI', sans-serif;
-    background-color: #E9E9E9;
-    overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
+  background: #f0f2f5; /* สีพื้นหลังของหน้า */
+  font-family: "Segoe UI", sans-serif; /* ฟอนต์ที่ใช้ */
+  display: flex; /* ใช้ Flexbox สำหรับการจัดวาง */
+  flex-direction: column; /* จัดเรียงลูกๆ ในแนวตั้ง */
+  justify-content: center; /* จัดกึ่งกลางลูกๆ ในแนวตั้ง */
+  align-items: center; /* จัดกึ่งกลางลูกๆ ในแนวนอน */
+  min-height: 100vh; /* ความสูงขั้นต่ำเต็มหน้าจอ */
+  margin: 0; /* ลบ margin เริ่มต้นของบราวเซอร์ */
+  padding: 20px; /* เพิ่ม padding รอบๆ เนื้อหา */
+  box-sizing: border-box; /* ทำให้ padding และ border ไม่เพิ่มขนาดของ element */
+  position: relative; /* กำหนดตำแหน่ง relative สำหรับ absolute children (เช่น wave) */
 }
 
-.header img {
-    position: relative;
-    top: -3.5rem; /* คงค่าเดิมเพื่อให้โลโก้ลอย */
+/* --- สไตล์สำหรับกล่องเข้าสู่ระบบ (.login-container) --- */
+.login-container {
+  padding: 30px 40px; /* ระยะห่างภายในกล่อง */
+  border-radius: 10px; /* ทำให้มุมกล่องมน */
+  width: 100%; /* กำหนดความกว้างเต็มที่ */
+  max-width: 380px; /* ความกว้างสูงสุดของกล่อง */
+  z-index: 1; /* กำหนดลำดับการแสดงผลให้อยู่ด้านบนสุด */
+  margin-top: -10%;
+  text-align: center; /* จัดเนื้อหาภายในให้กึ่งกลาง (เช่น โลโก้, H2, P) */
 }
 
-.header {
-    margin-bottom: -2.5rem; /* ลดระยะห่างด้านล่างของ header ให้เนื้อหาด้านล่างขยับขึ้น */
-    /* ปรับตามความเหมาะสมกับค่า top ของ img */
+.login-container .login-logo {
+  width: 70%;
+  max-width: 250%; /* ขนาดของโลโก้ */
+  height: auto;
+  margin-bottom: 15px; /* ระยะห่างใต้โลโก้ */
 }
 
-.login-box {
-    margin-top: 0.8rem; 
-    /* ปรับค่า margin-top ของ .login-box เพื่อให้มันขึ้นไปชนกับข้อความ "เข้าสู่ระบบ" */
+.login-container h2 {
+  margin-bottom: 5px; /* ลดระยะห่างใต้หัวข้อ */
+  color: #333; /* สีของหัวข้อ */
+  font-size: 2em;
 }
 
-
-@media (max-width: 768px) {
-    .header img {
-        top: -2rem; /* ปรับตำแหน่งโลโก้สำหรับหน้าจอเล็ก */
-    }
-    .header h1.fs-2 { /* ใช้ class ใน HTML */
-        font-size: 1.75rem !important; /* ปรับขนาด font สำหรับ h1 บนจอเล็ก */
-    }
-    .header p.fs-4 { /* ใช้ class ที่ใส่ใน HTML */
-        font-size: 1.25rem !important; /* ปรับขนาด font สำหรับ p บนจอเล็ก */
-    }
-    .login-box {
-        padding: 1.5rem !important; /* ลด padding ของ login-box */
-    }
-    .btn.w-75 {
-        width: 90% !important; /* ทำให้ปุ่มกว้างขึ้นบนจอเล็ก */
-    }
+.login-container .login-greeting {
+  margin-bottom: 25px; /* ระยะห่างใต้ข้อความ 'เข้าสู่ระบบ' */
+  color: #666; /* สีข้อความ */
+  font-size: 1.5em;
 }
 
-@media (max-width: 576px) {
-    .header img {
-        top: -1.5rem; /* ปรับตำแหน่งโลโก้สำหรับหน้าจอที่เล็กมากๆ */
-        max-width: 180px !important; /* ลดขนาดโลโก้เพิ่มเติม */
-    }
-    .header h1.fs-2 {
-        font-size: 1.5rem !important;
-    }
-    .header p.fs-4 {
-        font-size: 1rem !important;
-    }
-    .login-box {
-        padding: 1rem !important;
-    }
-    .remember-forgot {
-        flex-direction: column; /* จัดเรียงเป็นคอลัมน์ในจอเล็ก */
-        align-items: flex-start !important; /* จัดชิดซ้าย */
-    }
-    .remember-forgot a {
-        margin-top: 0.5rem; /* เพิ่มช่องว่างระหว่าง checkbox กับ link */
-    }
-    .btn.w-75 {
-        width: 100% !important; /* ทำให้ปุ่มกว้างเต็มจอในจอที่เล็กมากๆ */
-    }
+/* --- สไตล์สำหรับกลุ่ม Input (.input-group) --- */
+.input-group {
+  margin-bottom: 20px; /* ระยะห่างด้านล่างแต่ละกลุ่ม input */
+  position: relative; /* กำหนดตำแหน่ง relative สำหรับ icon ภายใน */
 }
 
-.input-group-text .fas {
-    color: #888;
-    font-size: 18px;
+.input-group i {
+  position: absolute; /* วาง icon แบบ absolute ภายใน input-group */
+  top: 50%; /* จัด icon ให้อยู่กึ่งกลางแนวตั้ง */
+  left: 12px; /* ระยะห่างจากขอบซ้าย */
+  transform: translateY(-50%); /* ปรับตำแหน่ง icon ให้กึ่งกลางเป๊ะ */
+  color: #999; /* สีของ icon */
+  font-size: 16px; /* ขนาดของ icon */
 }
 
-.remember-forgot a:hover {
-    color: #0a572d;
-    text-decoration: none;
+.input-group input {
+  width: calc(100% - 45px); /* ความกว้างของ input โดยเว้นที่ว่างให้ icon */
+  padding: 12px 15px 12px 45px; /* ระยะห่างภายใน input (ซ้ายเยอะกว่าเพราะมี icon) */
+  border: 1px solid #ddd; /* สไตล์ขอบของ input */
+  border-radius: 5px; /* ทำให้มุม input มน */
+  border-radius: 20px;
+  font-size: 15px; /* ขนาดตัวอักษรใน input */
+  transition: border-color 0.3s ease; /* เพิ่ม transition เมื่อ border เปลี่ยนสี */
 }
 
-.header h1,
-.header p {
-    color: #000000; /* สีดำสนิท */
+.input-group i {
+  padding: 5px;
+  color: #999;
 }
 
-.btn.btn-success {
-    background-color: #0E733B; /* สีพื้นหลัง */
-    border-color: #0E733B;     /* สีขอบ */
-    color: white;              /* สีข้อความ */
-    font-weight: bold;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.input-group input:focus {
+  outline: none; /* ลบ outline เริ่มต้นเมื่อ input ถูกเลือก */
+  border-color: #6d726d; /* เปลี่ยนสี border เมื่อ input ถูกเลือก (ตามสีปุ่ม) */
 }
 
-.btn.btn-success:hover {
-    background-color: #08602e; /* สีพื้นหลังเมื่อเมาส์ชี้ */
-    /* border-color: #0a572d;     สีขอบเมื่อเมาส์ชี้ */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+/* --- สไตล์สำหรับส่วน 'บันทึกรหัสผ่าน' และ 'ลืมรหัสผ่าน?' --- */
+.remember-forgot {
+  display: flex; /* ใช้ Flexbox เพื่อจัดวางในบรรทัดเดียว */
+  justify-content: space-between; /* จัดวางให้องค์ประกอบอยู่คนละฝั่ง */
+  align-items: center; /* จัดกึ่งกลางองค์ประกอบในแนวตั้ง */
+  margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+  font-size: 14px; /* ขนาดฟอนต์ */
+  color: #666; /* สีข้อความเริ่มต้น */
 }
 
-.form-check-input {
-  border: 1px solid #888;
+.remember-me {
+  display: flex; /* ใช้ Flexbox เพื่อจัดวาง checkbox และ label ในบรรทัดเดียวกัน */
+  align-items: center; /* จัดกึ่งกลาง checkbox และ label ในแนวตั้ง */
 }
 
-.form-check-input:checked {
-  background-color: #0E733B;
-  border-color: #074623;
+.remember-me input[type="checkbox"] {
+  margin-right: 8px; /* ระยะห่างด้านขวาของ checkbox */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือ */
+  background-color: #252825;
 }
 
-.form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(14, 115, 59, 0.25); /* เงาเมื่อ focus */
-    border-color: #0E733B; /* อาจเปลี่ยนสีขอบเมื่อ focus */
+.remember-me label {
+  cursor: pointer; /* ทำให้ข้อความเป็นรูปมือเมื่อชี้ */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* เพิ่ม transition สำหรับสีและขีดเส้นใต้ */
 }
 
-.form-control {
-  border-radius: 1rem;
+.remember-me label:hover {
+  color: #252825; /* เปลี่ยนสีข้อความเป็นสีเขียวเมื่อ hover (ตามสีปุ่ม) */
+  text-decoration: none; /* เพิ่มขีดเส้นใต้เมื่อ hover */
 }
 
-.form-control:focus {
-    border-color: #939594; /* เปลี่ยนสีขอบเป็นสีเขียวที่คุณใช้กับปุ่ม */
-    box-shadow: 0 0 0 0.25rem rgba(14, 115, 59, 0.25); /* เปลี่ยนสีเงาให้เข้ากับสีเขียวของคุณ */
-    /* ถ้าต้องการลบเงาสีฟ้าออกทั้งหมด ให้ใช้โค้ดด้านล่างนี้แทน: */
-    box-shadow: none;
+.forgot-password {
+  color: #333; /* สีของลิงก์ */
+  text-decoration: none; /* ลบขีดเส้นใต้เริ่มต้นของลิงก์ */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* เพิ่ม transition สำหรับสีและขีดเส้นใต้ */
+}
+
+.forgot-password:hover {
+  color: #393c39; /* เปลี่ยนสีข้อความเป็นสีเขียวเมื่อ hover (ตามสีปุ่ม) */
+  text-decoration: none; /* เพิ่มขีดเส้นใต้เมื่อ hover */
+}
+
+/* --- สไตล์สำหรับปุ่มเข้าสู่ระบบ (.login-btn) --- */
+.login-btn {
+  width: 40%; /* ความกว้างเต็มที่ */
+  padding: 12px; /* ระยะห่างภายในปุ่ม */
+  background: #19ac17; /* สีพื้นหลังของปุ่ม (เขียว) */
+  color: white; /* สีตัวอักษรของปุ่ม */
+  font-size: 17px; /* ขนาดตัวอักษร */
+  font-weight: bold; /* ทำตัวอักษรหนา */
+  border: none; /* ลบขอบปุ่ม */
+  border-radius: 20px; /* ทำให้มุมปุ่มมน */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือ */
+  transition: background 0.2s ease; /* เพิ่ม transition เมื่อพื้นหลังเปลี่ยนสี */
+  margin-top: 10px; /* ระยะห่างด้านบนของปุ่ม */
+}
+
+.login-btn:hover {
+  background: #69ce5e; /* เปลี่ยนสีพื้นหลังเมื่อ hover (เขียวอ่อนลง) */
+}
+
+/* --- สไตล์สำหรับส่วนคลื่นด้านล่าง (.wave-container) --- */
+.wave-container {
+  position: absolute; /* วางคลื่นแบบ absolute */
+  bottom: 0; /* ชิดขอบล่าง */
+  left: 0; /* ชิดขอบซ้าย */
+  width: 100%; /* ความกว้างเต็มที่ */
+  height: 35rem; /* ความสูงของคลื่น */
+  overflow: hidden; /* ซ่อนส่วนที่เกินจากขอบ */
+  z-index: 0; /* กำหนดลำดับการแสดงผลให้อยู่ด้านล่าง */
 }
 
 .wave-container svg {
-    /* width: 109%; ถ้ายังจำเป็นให้ใส่ แต่ w-100 ใน HTML */
-    /* height: 100%; ถูกจัดการด้วย h-100 ใน HTML แล้ว */
-    display: block;
+  display: block; /* ลบช่องว่างด้านล่าง SVG เริ่มต้นของบราวเซอร์ */
+}
+
+/* --- Base Styles (Applied to all devices by default) --- */
+/* ... โค้ด CSS เดิมของคุณทั้งหมดที่นี่ ... */
+
+/* --- Responsive Styles --- */
+
+/* สำหรับ Tablet (เช่น iPad, หน้าจอขนาดกลาง) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .login-container {
+    padding: 25px 35px; /* ลด padding ลงเล็กน้อย */
+    max-width: 350px; /* อาจจะลด max-width ลงเล็กน้อย */
+    margin-top: -8%; /* ปรับเลื่อนขึ้นให้น้อยลง */
+  }
+
+  .login-container .login-logo {
+    max-width: 200px; /* ปรับขนาดโลโก้สำหรับ Tablet */
+  }
+
+  .login-container h2 {
+    font-size: 1.8em; /* ลดขนาดหัวข้อ */
+  }
+
+  .login-container .login-greeting {
+    font-size: 1.3em; /* ลดขนาดข้อความต้อนรับ */
+  }
+
+  .input-group input {
+    padding: 10px 15px 10px 40px; /* ปรับ padding input */
+    font-size: 14px; /* ลดขนาดฟอนต์ใน input */
+  }
+
+  .input-group i {
+    font-size: 15px; /* ลดขนาดไอคอน */
+  }
+
+  .remember-forgot {
+    font-size: 13px; /* ลดขนาดฟอนต์ของ 'บันทึกรหัสผ่าน' / 'ลืมรหัสผ่าน' */
+  }
+
+  .login-btn {
+    width: 50%; /* ปรับความกว้างปุ่ม */
+    padding: 10px; /* ลด padding ปุ่ม */
+    font-size: 16px; /* ลดขนาดฟอนต์ปุ่ม */
+  }
+
+  .wave-container {
+    height: 30rem; /* ปรับความสูงคลื่นสำหรับ Tablet */
+  }
+}
+
+/* สำหรับ Mobile (โทรศัพท์มือถือทั่วไป) */
+@media (max-width: 767px) {
+  body {
+    padding: 15px; /* ลด padding ของ body เพื่อให้มีพื้นที่มากขึ้น */
+  }
+
+  .login-container {
+    padding: 20px 25px; /* ลด padding ภายในกล่องลงอีก */
+    max-width: 300px; /* ลด max-width ลงอีก */
+    margin-top: -5%; /* อาจจะต้องลด margin-top หรือทำให้เป็น 0 */
+  }
+
+  .login-container .login-logo {
+    width: 80%; /* โลโก้กว้างขึ้นสำหรับมือถือ */
+    max-width: 180px; /* จำกัดขนาดสูงสุด */
+    margin-bottom: 10px;
+  }
+
+  .login-container h2 {
+    font-size: 1.6em; /* ลดขนาดหัวข้อลง */
+  }
+
+  .login-container .login-greeting {
+    font-size: 1.2em; /* ลดขนาดข้อความต้อนรับลง */
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    margin-bottom: 15px; /* ลดระยะห่างระหว่าง input group */
+  }
+
+  .input-group input {
+    padding: 10px 12px 10px 38px; /* ปรับ padding input */
+    font-size: 14px; /* ลดขนาดฟอนต์ใน input */
+  }
+
+  .input-group i {
+    left: 8px; /* ปรับตำแหน่งไอคอน */
+    font-size: 14px; /* ลดขนาดไอคอน */
+  }
+
+  .remember-forgot {
+    flex-direction: column; /* จัดเรียงเป็นคอลัมน์สำหรับมือถือ */
+    align-items: flex-start; /* จัดชิดซ้าย */
+    margin-bottom: 15px;
+  }
+
+  .remember-me {
+    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่าง 'บันทึกรหัสผ่าน' กับ 'ลืมรหัสผ่าน' */
+  }
+
+  .remember-me label {
+    font-size: 13px;
+  }
+
+  .forgot-password {
+    font-size: 13px;
+  }
+
+  .login-btn {
+    width: 60%; /* ปรับความกว้างปุ่มสำหรับมือถือ */
+    padding: 10px; /* ลด padding ปุ่ม */
+    font-size: 15px; /* ลดขนาดฟอนต์ปุ่ม */
+    margin-top: 5px; /* ลดระยะห่างด้านบนปุ่ม */
+  }
+
+  .wave-container {
+    height: 20rem; /* ลดความสูงคลื่นสำหรับมือถือ */
+  }
+}
+
+/* --- New: สำหรับ Mobile ขนาดเล็กพิเศษ (Ultra-Small Screens) --- */
+@media (max-width: 480px) {
+  body {
+    padding: 10px; /* ลด padding ของ body ลงอีก */
+  }
+
+  .login-container {
+    padding: 15px 20px; /* ลด padding ภายในกล่องลงอีก */
+    max-width: 280px; /* จำกัดความกว้างสูงสุดให้แคบลงอีก */
+    margin-top: -3%; /* อาจปรับลด/เพิ่มตามความเหมาะสม */
+  }
+
+  .login-container .login-logo {
+    max-width: 150px; /* ปรับขนาดโลโก้สำหรับหน้าจอเล็กสุด */
+    margin-bottom: 8px;
+  }
+
+  .login-container h2 {
+    font-size: 1.4em; /* ลดขนาดหัวข้อลงอีก */
+  }
+
+  .login-container .login-greeting {
+    font-size: 1em; /* ลดขนาดข้อความต้อนรับลงอีก */
+    margin-bottom: 15px;
+  }
+
+  .input-group {
+    margin-bottom: 12px; /* ลดระยะห่างระหว่าง input group ลง */
+  }
+
+  .input-group input {
+    padding: 8px 10px 8px 35px; /* ลด padding input ลงอีก */
+    font-size: 13px; /* ลดขนาดฟอนต์ใน input ลงอีก */
+  }
+
+  .input-group i {
+    left: 5px; /* ปรับตำแหน่งไอคอนให้ชิดซ้ายมากขึ้น */
+    font-size: 13px; /* ลดขนาดไอคอนลงอีก */
+  }
+
+  .remember-forgot {
+    /* อาจจะใช้ flex-direction: column; อยู่แล้วจาก max-width: 767px */
+    margin-bottom: 10px;
+  }
+
+  .remember-me label,
+  .forgot-password {
+    font-size: 12px; /* ลดขนาดฟอนต์ของข้อความ 'บันทึกรหัสผ่าน' / 'ลืมรหัสผ่าน' */
+  }
+
+  .login-btn {
+    width: 70%; /* อาจจะเพิ่มความกว้างปุ่มเล็กน้อยเพื่อให้กดง่าย */
+    padding: 8px; /* ลด padding ปุ่ม */
+    font-size: 14px; /* ลดขนาดฟอนต์ปุ่ม */
+    margin-top: 5px;
+  }
+
+  .wave-container {
+    height: 15rem; /* ลดความสูงคลื่นลงอีกสำหรับหน้าจอที่เล็กมากๆ */
+  }
 }

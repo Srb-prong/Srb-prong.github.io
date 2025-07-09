@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบทะเบียนออนไลน์</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <img src="logo.png" alt="logo rgo" class="login-logo">
+    <h2>ระบบทะเบียนออนไลน์</h2>
+    <p class="login-greeting">เข้าสู่ระบบ</p>
+    <form>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="youremail@gmail.com" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="password" required>
+      </div>
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" id="rememberMe">
+          <label for="rememberMe">บันทึกรหัสผ่าน</label>
+        </div>
+        <a href="#" class="forgot-password">ลืมรหัสผ่าน</a>
+      </div>
+      <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
+    </form>
+  </div>
+
+  <div class="wave-container">
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+      <path d="M0,160 C300,110 1000,240 1300,100 L1200,200 L0,200 Z" fill="#19ac17"></path>
+    </svg>
+  </div>
+</body>
+
+</html>
