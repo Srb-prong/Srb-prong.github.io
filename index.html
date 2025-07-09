@@ -58,13 +58,13 @@
 
             inputs.forEach(input => {
                 input.addEventListener('focus', function() {
-                    // เมื่อ input ได้รับ focus ให้ซ่อน wave-container ชั่วคราว หรือเปลี่ยน position
-                    waveContainer.style.display = 'none'; // หรือ waveContainer.style.position = 'static';
+                    
+                    waveContainer.style.display = 'none'; 
                 });
 
                 input.addEventListener('blur', function() {
-                    // เมื่อ input เสีย focus ให้แสดง wave-container กลับมา
-                    waveContainer.style.display = 'block'; // หรือ waveContainer.style.position = 'absolute';
+                   
+                    waveContainer.style.display = 'block'; 
                 });
             });
         });
